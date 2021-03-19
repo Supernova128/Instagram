@@ -2,11 +2,15 @@ package com.example.instagram;
 
 import android.app.Application;
 import com.parse.Parse;
+import com.parse.ParseObject;
+
 import android.app.Application;
 public class ParseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        ParseObject.registerSubclass(Post.class);
 
         // Use for troubleshooting -- remove this line for production
         Parse.initialize(new Parse.Configuration.Builder(this)
