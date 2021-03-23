@@ -29,6 +29,9 @@ public class SignupActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword2);
         btnSignup = findViewById(R.id.btnSignup);
         btnBack = findViewById(R.id.btnBack);
+        if (ParseUser.getCurrentUser() != null){
+            goMainActivity();
+        }
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

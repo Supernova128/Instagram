@@ -13,14 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        tools:text="username" />
+        android:hint="Username"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etPassword2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword" />
 
     <Button
