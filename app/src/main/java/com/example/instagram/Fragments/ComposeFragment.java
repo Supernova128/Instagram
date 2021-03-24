@@ -66,14 +66,7 @@ public class ComposeFragment extends Fragment {
         btnSubmit = view.findViewById(R.id.btnSubmit);
         btnLog = view.findViewById(R.id.btnLog);
 
-        btnCapture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LaunchCamera();
-            }
-        });
         btnLog.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
                 ParseUser.logOut();
@@ -81,6 +74,14 @@ public class ComposeFragment extends Fragment {
                 System.exit(0);
             }
         });
+
+        btnCapture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LaunchCamera();
+            }
+        });
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,22 +147,7 @@ public class ComposeFragment extends Fragment {
         });
     }
 
-    private void queryPosts() {
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        query.include(Post.User_Key);
-        query.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                if (e != null){
-                    Log.e(TAG,"Fail");
-                    return;
-                }
-                for (Post post : posts){
-                    Log.i(TAG,"Post: " + post.getDescription());
-                }
-            }
-        });
-    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

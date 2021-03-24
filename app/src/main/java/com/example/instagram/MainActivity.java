@@ -24,6 +24,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.instagram.Fragments.ComposeFragment;
+import com.example.instagram.Fragments.HomeFragment;
+import com.example.instagram.Fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -48,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        // queryPosts();
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
@@ -58,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new ComposeFragment();
                         break;
                     case R.id.action_home:
-                        fragment = new ComposeFragment();
+                        fragment = new HomeFragment();
                         break;
                     case R.id.action_profile:
-                        fragment = new ComposeFragment();
+                        fragment = new ProfileFragment();
                         break;
                     default:
                         throw new IllegalStateException("Unexpected value: " + item.getItemId());
@@ -69,5 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 fragmentManager.beginTransaction().replace(R.id.flContainer,fragment).commit();
             }
         });
+        bottomNavigationView.setSelectedItemId((R.id.action_home));
     }
 }

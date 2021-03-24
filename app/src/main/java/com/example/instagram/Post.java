@@ -12,6 +12,7 @@ public class Post extends ParseObject {
     public static final String Description_Key = "description";
     public static final String Image_Key = "image";
     public static final String User_Key = "user";
+    public static final String Created_Key = "createdAt";
 
     public String getDescription(){
         return getString(Description_Key);
